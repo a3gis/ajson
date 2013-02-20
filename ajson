@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'pp'
+
+require './lib/ajson/scanner'
+require './lib/ajson/parser'
+
+tokens = AJSON::Scanner.new(STDIN.read).scan
+
+pp tokens
+
+ast = AJSON::Parser.new.parse(tokens)
+
+pp ast
+
+#ast = AJSON::Parser.new.parse(tokens)
+
+#pp ast
