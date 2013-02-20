@@ -6,7 +6,7 @@ rule
 
 JSONString: STRING { result = val[0] }
 
-JSONNumber: NUMBER { result = val[0].to_i }
+JSONNumber: NUMBER { result = val[0].to_f }
 
 JSONBooleanLiteral: TRUE { result = true } | FALSE { result = false }
 
