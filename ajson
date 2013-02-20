@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'benchmark'
-
 require 'rubygems'
 require 'pp'
 
@@ -10,27 +8,8 @@ require './lib/ajson/parser'
 
 content = STDIN.read
 
-puts Benchmark.measure {
-   i = 0
-   while i < 1000
-      tokens = AJSON::Scanner.new(content).scan
-      ast = AJSON::Parser.new.parse(tokens)
-      i += 1
-   end
-}
-
-require 'json'
-
-puts Benchmark.measure {
-   i = 0
-   while i < 1000
-      ast = JSON.parse(content)
-      i += 1
-   end
-}
+tokens = AJSON::Scanner.new(content).scan
+ast = AJSON::Parser.new.parse(tokens)
 
 pp ast
 
-#ast = AJSON::Parser.new.parse(tokens)
-
-#pp ast
