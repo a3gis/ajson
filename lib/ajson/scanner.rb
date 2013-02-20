@@ -1,7 +1,7 @@
 module AJSON
    class Scanner
       def initialize source
-         @source = source
+         @source = source.clone
          @stack = []
       end
       
